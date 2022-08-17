@@ -3,6 +3,12 @@ const app = express();
 app.listen(4494);
 app.use(express.json()); 
 
+const routes = require(',/routes/routes');
+const bodyParser = require('body-parser');
+app.use(bodyParser.json);
+app.use(routes);
+
+/*
 app.use((req, res, next) => {
     const log1 = `host: ${req.hostname}
     ip: ${req.ip}
@@ -11,7 +17,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', (req, res) => res.send('Hello, my name is !'));
+app.get('/', (req, res) => res.send('Hi, my name is (wha?), my name is (who?) my name is...!'));
 let names = ['Dan', 'Faizaan', 'Mohamed', 'Khaleeq', 'Kiran'];
 
 app.get('/getAll', (req, res) => res.send(names));
@@ -33,3 +39,4 @@ app.post('/replace/:index', (req, res) => {
     names[index] = name;
     res.status(202).send(`${old} has been replaced by ${name}`);
 });
+*/
