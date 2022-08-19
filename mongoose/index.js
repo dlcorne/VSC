@@ -1,14 +1,14 @@
 const express = require ('express');
 const app = express();
 
-const server = app.listen(7300, () => {
-    console.log(`Port: ${server.address().port} has started`);
+const server = app.listen(27017, () => {
+    console.log(`Port: ${server.address().port} is on`);
 });
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
-const movieRoutes = require('./routes/movies');
+const routes = require('./routes/movies');
 
 const Movie = require('./db');
 
@@ -25,3 +25,5 @@ app.use((req, res, next) => {
 });
 
 app.use(routes);
+
+module.exports = server;
